@@ -1,0 +1,20 @@
+<!-- animals/templates/animals/cat_list.html -->
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<h1>CATS</h1>
+<h2>New Cat</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="id_title">Cat:</label>
+    <input type="text" name="cat" id="id_title" required><br>
+
+    <label for="id_body">Birth year:</label>
+    <input type="number" name="birth_year" id="id_body" required><br>
+
+    <label for="id_img">Image:</label>
+    <input type="file" name="img" id="id_img"><br>
+</form>
+
+{% endblock page_content %}

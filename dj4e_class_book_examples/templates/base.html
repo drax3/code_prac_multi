@@ -1,0 +1,28 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}My Personal Portfolio{% endblock title %}</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <style>
+        /* Remove underline and set the color for the links */
+        .top-title-link {
+            text-decoration: none; /* Remove underline */
+            color: black; /* Set the desired color (in this case, black) */
+        }
+    </style>
+</head>
+<body class="container">
+    <h1><a href="{% url 'base' %}" class="top-title-link" >APP PAGE</a></h1>
+    {% if request.path == '/' %}
+    <a href="{% url 'animals:cat_list' %}">Cats</a> | <a href="#">Horses</a>
+    {% endif %}
+
+{% block page_content %}{% endblock page_content %}
+</body>
+</html>
